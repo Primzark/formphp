@@ -25,9 +25,9 @@
                                 <label for="password" class="form-label">Mot de passe:</label>
                                 <input type="password" class="form-control" id="password" name="password" required>
                             </div>
-                            <button type="submit" class="btn btn-primary w-100">Se connecter</button>
+                            <a><button type="submit" class="btn btn-primary w-100">Se connecter</button></a>
                         </form>
-                        <p class="mt-3 text-center">Pas encore de compte ? <a href="inscription.html">Inscrivez-vous</a>
+                        <p class="mt-3 text-center">Pas encore de compte ? <a href="inscription.php">Inscrivez-vous</a>
                         </p>
                     </div>
                 </div>

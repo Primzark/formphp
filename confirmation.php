@@ -17,7 +17,7 @@
                     <div class="p-4 text-center">
                         <h1 class="card-title">Merci de votre inscription !</h1>
                         <p>Vous pouvez dorénavant vous connecter.</p>
-                        <a href="connexion.html" class="btn btn-primary">Se connecter</a>
+                        <a href="connexion.php" class="btn btn-primary">Se connecter</a>
                     </div>
                 </div>
             </div>
