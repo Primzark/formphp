@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html lang="fr">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Confirmation</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-</head>
+<?php
+include_once("../../templates/head.php");
+?>
 
 <body>
     <div class="container mt-5">
@@ -17,7 +10,7 @@
                     <div class="p-4 text-center">
                         <h1 class="card-title">Merci de votre inscription !</h1>
                         <p>Vous pouvez dorénavant vous connecter.</p>
-                        <a href="connexion.php" class="btn btn-primary">Se connecter</a>
+                        <a href="../Controller/controller_connexion.php" class="btn btn-primary">Se connecter</a>
                     </div>
                 </div>
             </div>
@@ -28,5 +21,3 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
 </body>
-
-</html>

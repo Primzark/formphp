@@ -1,18 +1,11 @@
-<!DOCTYPE html>
-<html lang="fr">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connexion</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-</head>
+<?php
+include_once("../../templates/head.php");
+?>
 
 <body>
     <div class="container mt-5">
         <div class="row justify-content-center">
-            <div class="col-6">
+            <div class="col-6 p-4">
                 <div class="card">
                     <div class="p-4">
                         <h1 class="card-title text-center">Connexion</h1>
@@ -27,7 +20,7 @@
                             </div>
                             <a><button type="submit" class="btn btn-primary w-100">Se connecter</button></a>
                         </form>
-                        <p class="mt-3 text-center">Pas encore de compte ? <a href="inscription.php">Inscrivez-vous</a>
+                        <p class="mt-3 text-center">Pas encore de compte ? <a href="../Controller/controller_inscription.php">Inscrivez-vous</a>
                         </p>
                     </div>
                 </div>

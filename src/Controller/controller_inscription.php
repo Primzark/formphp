@@ -1,23 +1,35 @@
 <?php
 
+require_once("../../config.php");
+
 $regex_name = "/^[a-zA-Z]+$/";
+$regex_pseudo = "/^[a-zA-Z0-9._%+-]{4,}$/";
 $regex_email = "/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/";
-$regex_password = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/";
+$regex_password = "/^[a-zA-Z.@-]{4,}$/";
 $errors = [];
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if (isset($_POST['nom'])) {
-        if (empty($_POST['nom'])) {
-            $errors['nom'] = 'champs obligatoire';
-        } else if (!preg_match($regex_name, $_POST['nom'])) {
-            $errors['nom'] = 'caractère non autorisés';
-        }
+
+    var_dump($_POST);
+    if (empty($_POST['nom'])) {
+        $errors['nom'] = 'champs obligatoire';
+    } else if (!preg_match($regex_name, $_POST['nom'])) {
+        $errors['nom'] = 'caractère non autorisés';
     }
+
 
     if (isset($_POST['prenom'])) {
         if (empty($_POST['prenom'])) {
             $errors['prenom'] = 'champs obligatoire';
         } else if (!preg_match($regex_name, $_POST['prenom'])) {
             $errors['prenom'] = 'caractère non autorisés';
+        }
+    }
+
+    if (isset($_POST['pseudo'])) {
+        if (empty($_POST['pseudo'])) {
+            $errors['pseudo'] = 'champs obligatoire';
+        } else if (!preg_match($regex_pseudo, $_POST['pseudo'])) {
+            $errors['pseudo'] = 'pseudo non valide';
         }
     }
 
@@ -58,10 +70,38 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (!isset($_POST['terms'])) {
         $errors['terms'] = 'champs obligatoire';
     }
+
+    
+
+    if (empty($errors)) {
+
+        $pdo = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8', DB_USER, DB_PASS);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        var_dump($pdo);
+        $sql = "INSERT INTO `76_users` (user_lastname,user_firstname,user_pseudo,user_birthdate,user_mail,user_password,user_gender) 
+                VALUES (:lastname,:firstname,:pseudo,:birthdate,:mail,:password,:gender);";
+
+        $stmt = $pdo->prepare($sql);
+
+        $stmt->bindValue(':lastname', $_POST['nom'], PDO::PARAM_STR);
+        $stmt->bindValue(':firstname', $_POST['prenom'], PDO::PARAM_STR);
+        $stmt->bindValue(':pseudo', $_POST['pseudo'], PDO::PARAM_STR);
+        $stmt->bindValue(':birthdate', $_POST['dob'], PDO::PARAM_STR);
+        $stmt->bindValue(':mail', $_POST['email'], PDO::PARAM_STR);
+        $stmt->bindValue(':password', password_hash($_POST['password'], PASSWORD_DEFAULT), PDO::PARAM_STR);
+        $stmt->bindValue(':gender', $_POST['genre'], PDO::PARAM_STR);
+
+        if ($stmt->execute()) {
+            header('Location: controller_confirmation.php');
+            exit();
+        }
+        
+    }
+
 }
 
 
-include_once '../View/view-inscription.php';
+include_once '../View/view_inscription.php';
 
 
 
