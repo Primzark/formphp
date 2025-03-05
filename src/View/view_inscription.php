@@ -17,7 +17,7 @@ include_once("../../templates/head.php");
                                 <span class="text-danger">
                                     <?= $errors['nom'] ?? '' ?>
                                 </span>
-                                <input type="text" class="form-control <?php echo isset($errors['nom']) ? 'is-invalid' : ''; ?>"id="nom" name="nom" required>
+                                <input type="text" class="form-control <?php echo isset($errors['nom']) ? 'is-invalid' : ''; ?>"id="nom" name="nom" value="<?= $_POST['nom'] ?? '' ?>"required>
                                 <?php if (isset($errors['nom'])): ?>
                                     <div class="invalid-feedback">
                                         <?= $errors['nom'] ?>
@@ -35,7 +35,7 @@ include_once("../../templates/head.php");
                                     <?= $errors['prenom'] ?? '' ?>
                                 </span>
                                 <input type="text"
-                                    class="form-control <?php echo isset($errors['prenom']) ? 'is-invalid' : ''; ?>"id="prenom" name="prenom" required>
+                                    class="form-control <?php echo isset($errors['prenom']) ? 'is-invalid' : ''; ?>"id="prenom" name="prenom" value="<?= $_POST['prenom'] ?? '' ?>"required>
                                 <?php if (isset($errors['prenom'])): ?>
                                     <div class="invalid-feedback">
                                         <?= $errors['prenom'] ?>
@@ -51,7 +51,7 @@ include_once("../../templates/head.php");
                                 <label for="pseudo" class="form-label">Pseudo:</label>
                                 <span class="text-danger"><?= $errors['pseudo'] ?? '' ?></span>
                                 <input type="text"
-                                    class="form-control <?php echo isset($errors['pseudo']) ? 'is-invalid' : ''; ?>" id="pseudo" name="pseudo" required>
+                                    class="form-control <?php echo isset($errors['pseudo']) ? 'is-invalid' : ''; ?>" id="pseudo" name="pseudo" value="<?= $_POST['pseudo'] ?? '' ?>"required>
                                 <?php if (isset($errors['pseudo'])): ?>
                                     <div class="invalid-feedback">
                                         <?= $errors['pseudo'] ?>
@@ -69,7 +69,7 @@ include_once("../../templates/head.php");
                                     <?= $errors['email'] ?? '' ?>
                                 </span>
                                 <input type="email"
-                                    class="form-control <?php echo isset($errors['email']) ? 'is-invalid' : ''; ?>"id="email" name="email" required>
+                                    class="form-control <?php echo isset($errors['email']) ? 'is-invalid' : ''; ?>"id="email" name="email"value="<?= $_POST['email'] ?? '' ?>" required>
                                 <?php if (isset($errors['email'])): ?>
                                     <div class="invalid-feedback">
                                         <?= $errors['email'] ?>
@@ -87,7 +87,7 @@ include_once("../../templates/head.php");
                                     <?= $errors['password'] ?? '' ?>
                                 </span>
                                 <input type="password"
-                                    class="form-control <?php echo isset($errors['password']) ? 'is-invalid' : ''; ?>"id="password" name="password" required>
+                                    class="form-control <?php echo isset($errors['password']) ? 'is-invalid' : ''; ?>"id="password" name="password" value="<?= $_POST['password'] ?? '' ?>"required>
                                 <?php if (isset($errors['password'])): ?>
                                     <div class="invalid-feedback">
                                         <?= $errors['password'] ?>
@@ -105,7 +105,7 @@ include_once("../../templates/head.php");
                                     <?= $errors['confirm_password'] ?? '' ?>
                                 </span>
                                 <input type="password"
-                                    class="form-control <?php echo isset($errors['confirm_password']) ? 'is-invalid' : ''; ?>"id="confirm_password" name="confirm_password" required>
+                                    class="form-control <?php echo isset($errors['confirm_password']) ? 'is-invalid' : ''; ?>"id="confirm_password" name="confirm_password" value="<?= $_POST['confirm_password'] ?? '' ?>"required>
                                 <?php if (isset($errors['confirm_password'])): ?>
                                     <div class="invalid-feedback">
                                         <?= $errors['confirm_password'] ?>
@@ -123,7 +123,7 @@ include_once("../../templates/head.php");
                                     <?= $errors['dob'] ?? '' ?>
                                 </span>
                                 <input type="date"
-                                    class="form-control <?php echo isset($errors['dob']) ? 'is-invalid' : ''; ?>"id="dob" name="dob" required>
+                                    class="form-control <?php echo isset($errors['dob']) ? 'is-invalid' : ''; ?>"id="dob" name="dob" value="<?= $_POST['dob'] ?? '' ?>"required>
                                 <?php if (isset($errors['dob'])): ?>
                                     <div class="invalid-feedback">
                                         <?= $errors['dob'] ?>
@@ -138,7 +138,7 @@ include_once("../../templates/head.php");
                             <div class="mb-3">
                                 <label for="genre" class="form-label">Genre:</label>
                                 <span class="text-danger"><?= $errors['genre'] ?? '' ?></span>
-                                <select class="form-control <?php echo isset($errors['genre']) ? 'is-invalid' : ''; ?>"id="genre" name="genre" required>
+                                <select class="form-control <?php echo isset($errors['genre']) ? 'is-invalid' : ''; ?>"required>
                                     <option value="" selected disabled></option>
                                     <option value="homme">Homme</option>
                                     <option value="femme">Femme</option>
@@ -156,7 +156,7 @@ include_once("../../templates/head.php");
                             </div>
 
                             <div class="mb-3">
-                                <input type="checkbox" class="form-check-input" id="terms" name="terms" required>
+                                <input type="checkbox" class="form-check-input" id="terms" name="terms" value="<?= $_POST['lastname'] ?? '' ?>"value="<?= $_POST['terms'] ?? '' ?>"required>
                                 <span class="text-danger">
                                     <?= $errors['terms'] ?? '' ?>
                                 </span>

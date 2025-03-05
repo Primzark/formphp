@@ -25,21 +25,38 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 
+
+    $pdo = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8', DB_USER, DB_PASS);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    $sql = "SELECT * FROM 76_users WHERE user_pseudo = :pseudo";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindValue(':pseudo', $_POST['pseudo'], PDO::PARAM_STR);
+    $stmt->execute();
+    $stmt->rowCount() == 0 ? $found = false : $found = true;
+    $pdo = '';
+
     if (isset($_POST['pseudo'])) {
         if (empty($_POST['pseudo'])) {
             $errors['pseudo'] = 'champs obligatoire';
         } else if (!preg_match($regex_pseudo, $_POST['pseudo'])) {
             $errors['pseudo'] = 'pseudo non valide';
+        } else if ($found == true) {
+            $errors['pseudo'] = 'pseudo non disponible';
         }
     }
+
 
     if (isset($_POST['email'])) {
         if (empty($_POST['email'])) {
             $errors['email'] = 'champs obligatoire';
         } else if (!preg_match($regex_email, $_POST['email'])) {
             $errors['email'] = 'email non valide';
+        } else if ($found == true) {
+            $errors['email'] = 'email non disponible';
         }
     }
+
 
     if (isset($_POST['password'])) {
         if (empty($_POST['password'])) {
@@ -71,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $errors['terms'] = 'champs obligatoire';
     }
 
-    
+
 
     if (empty($errors)) {
 
@@ -95,13 +112,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             header('Location: controller_confirmation.php');
             exit();
         }
-        
+
     }
 
 }
-
-
 include_once '../View/view_inscription.php';
-
-
-
