@@ -1,6 +1,7 @@
 <?php
 
 include_once '../../config.php';
+session_start();
 
 var_dump($_POST);
 
@@ -38,9 +39,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($found == false) {
             var_dump($_POST);
             $errors['connexion'] = 'pseudo incorrecte';
-        } else  {
+        } else {
             var_dump($user);
+            if (password_verify($_POST['password'], $user['user_password'])) {
+                $_SESSION = $user;
+                header('Location: controller_profil.php');
+                exit();
+            } else {
+                $errors['connexion'] = 'mot de passe incorrecte';
+            }
         }
+        $pdo = "";
     }
 
 
