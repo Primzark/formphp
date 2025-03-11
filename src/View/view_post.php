@@ -56,11 +56,11 @@ include_once("../../templates/head.php");
         </ul>
       </div>
 
-      <!-- Post Creation Form (based on teacher's view_post.php) -->
+     
       <div class="col-9">
         <div class="mt-3 mx-auto w-50">
           <div class="bg-dark text-light p-4 shadow rounded">
-            <h1 class="text-center mb-4 text-light">POST'it!</h1>
+            <h1 class="text-center mb-4">Ready to show the world ?</h1>
             <form action="../Controller/controller_post.php" method="POST" enctype="multipart/form-data" novalidate>
               <div class="row g-2 justify-content-center">
                 <div class="col-12">
@@ -74,7 +74,7 @@ include_once("../../templates/head.php");
                   <label for="description" class="form-label">Comment</label>
                   <textarea
                     class="form-control bg-dark text-light border-secondary <?php echo isset($errors['description']) ? 'is-invalid' : ''; ?>"
-                    rows="6" id="description" name="description" placeholder="Super photo :)" required></textarea>
+                    rows="6" id="description" name="description" placeholder="instagoat" required></textarea>
                   <div class="invalid-feedback">Please enter a comment</div>
                 </div>
                 <div class="col-12">
@@ -91,7 +91,7 @@ include_once("../../templates/head.php");
     </div>
   </div>
 
-  <!-- Offcanvas -->
+
   <div class="offcanvas offcanvas-start bg-dark text-light" tabindex="-1" id="searchOffcanvas"
     aria-labelledby="searchOffcanvasLabel">
     <div class="offcanvas-header">

@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-// Check if user is logged in
+
 if (!isset($_SESSION['user_id'])) {
     header('Location: ../../public/');
     exit;
@@ -9,16 +9,16 @@ if (!isset($_SESSION['user_id'])) {
 
 require_once '../../config.php';
 
-// Initialize errors array
+
 $errors = [];
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Check if photo is uploaded
+   
     if ($_FILES['photo']['error'] == UPLOAD_ERR_NO_FILE) {
         $errors['photo'] = 'Please select a photo';
     }
 
-    // Check description
+    
     if (empty($_POST['description'])) {
         $errors['description'] = 'Please enter a comment';
     }
@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $post_id = $pdo->lastInsertId();
 
-        // Generate pic_name and truncate to 45 characters
+    
         $original_name = basename($_FILES["photo"]["name"]);
         $pic_name = substr(uniqid() . '_' . $original_name, 0, 45);
         $sql = "INSERT INTO `76_pictures` (`pic_name`, `post_id`) 
