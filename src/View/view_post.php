@@ -78,7 +78,7 @@ include_once("../../templates/head.php");
                   <div class="invalid-feedback">Please enter a comment</div>
                 </div>
                 <div class="col-12">
-                  <button class="btn btn-primary mt-3 w-100">Save</button>
+                  <button class="btn btn-primary mt-3 w-100">Post</button>
                 </div>
                 <div class="col-12">
                   <a href="../Controller/controller_home.php" class="btn btn-outline-secondary w-100">Cancel</a>
