@@ -40,9 +40,10 @@ include_once "../../templates/head.php";
                         </button>
                     </li>
                     <li class="py-2">
-                        <button class="btn btn-dark w-100 text-start">
+                        <a href="../../src/Controller/controller_post.php" class="btn btn-dark w-100 text-start">
                             <i class="bi bi-plus-square me-2 fs-2"></i> Create
-                        </button>
+                        </a>
+
                     </li>
                     <li class="py-2">
                         <a class="btn btn-dark w-100 text-start" href="../../src/Controller/controller_profil.php">
