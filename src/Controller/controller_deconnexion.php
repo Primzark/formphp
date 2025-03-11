@@ -7,7 +7,8 @@ unset($_SESSION);
 
 
 session_destroy();
-?>
+
+header('Location:../../src/Controller/controller_connexion.php');
 
 
-<?php include_once '../View/view-connexion.php' ?>
+

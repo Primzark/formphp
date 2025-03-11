@@ -1,14 +1,16 @@
 <?php
     include_once "../../templates/head_profil.php";
+   
 ?>
+
 
 <div class="top-bar">
     <div class="top-bar-left">
         <h2>Instagram</h2>
     </div>
     <div class="top-bar-right">
-        <button class="signin-btn">Sign In</button>
-        <button class="login-btn">Log out</button>
+        <a href="../../src/Controller/controller_home.php"><button class="signin-btn">Home</button></a>
+        <a href="../../src/Controller/controller_deconnexion.php"><button class="login-btn">Log out</button></a>
     </div>
 </div>
 
@@ -42,6 +44,9 @@
     <button>Follow</button>
     <button>Contact</button>
 </div>
+
+
+
 
 <div class="main-section">
     <div class="tab-bar">

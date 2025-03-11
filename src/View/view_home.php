@@ -4,7 +4,7 @@ if (!isset($_SESSION['user_id'])) {
     exit;
 }
 
-include_once("../../templates/head.php");
+include_once "../../templates/head.php";
 ?>
 
 <body data-bs-theme="dark">
@@ -14,12 +14,13 @@ include_once("../../templates/head.php");
                 <h4 class="text-light">Instagram</h4>
                 <ul class="list-unstyled py-4">
                     <li class="py-2">
-                        <button class="btn btn-dark w-100 text-start">
+                        <a class="btn btn-dark w-100 text-start">
                             <i class="bi bi-house-door me-2 fs-2"></i> Home
-                        </button>
+                        </a>
                     </li>
                     <li class="py-2">
-                        <button class="btn btn-dark w-100 text-start" data-bs-toggle="offcanvas" data-bs-target="#searchOffcanvas">
+                        <button class="btn btn-dark w-100 text-start" data-bs-toggle="offcanvas"
+                            data-bs-target="#searchOffcanvas">
                             <i class="bi bi-search me-2 fs-2"></i> Search
                         </button>
                     </li>
@@ -44,9 +45,9 @@ include_once("../../templates/head.php");
                         </button>
                     </li>
                     <li class="py-2">
-                        <button class="btn btn-dark w-100 text-start">
+                        <a class="btn btn-dark w-100 text-start" href="../../src/Controller/controller_profil.php">
                             <i class="bi bi-person me-2 fs-2"></i> Profile
-                        </button>
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -63,9 +64,8 @@ include_once("../../templates/head.php");
                                 </span>
                             </div>
                             <div class="ratio ratio-1x1">
-                                <img src="../../asset/img/<?php echo $post['pic_name']; ?>" 
-                                     class="card-img-top object-fit-cover" 
-                                     alt="<?php echo $post['post_description']; ?>">
+                                <img src="../../asset/img/<?php echo $post['pic_name']; ?>"
+                                    class="card-img-top object-fit-cover" alt="<?php echo $post['post_description']; ?>">
                             </div>
                             <div class="card-body">
                                 <p><?php echo $post['post_description']; ?></p>
@@ -82,10 +82,12 @@ include_once("../../templates/head.php");
         </div>
     </div>
 
-    <div class="offcanvas offcanvas-start bg-dark" tabindex="-1" id="searchOffcanvas" aria-labelledby="searchOffcanvasLabel">
+    <div class="offcanvas offcanvas-start bg-dark" tabindex="-1" id="searchOffcanvas"
+        aria-labelledby="searchOffcanvasLabel">
         <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="searchOffcanvasLabel">Search</h5>
-            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
             <form>
@@ -97,7 +99,7 @@ include_once("../../templates/head.php");
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
-            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" 
-            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 </body>

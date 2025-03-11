@@ -14,23 +14,23 @@ $pdo = new PDO(
 );
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-// Query to get posts from the user and their favorites
+
 $sql = "
     SELECT 
-        post_id,
-        post_timestamp,
-        post_description,
-        user_pseudo,
-        pic_name,
-        user_id
-    FROM 76_posts
-    NATURAL JOIN 76_users
-    NATURAL JOIN 76_pictures
-    WHERE user_id IN (
-        :user_id,
-        (SELECT fav_id FROM 76_favorites WHERE user_id = :user_id)
-    )
-    ORDER BY post_timestamp DESC
+    post_id,
+    post_timestamp,
+    post_description,
+    user_pseudo,
+    pic_name,
+    user_id
+FROM 76_posts
+NATURAL JOIN 76_users
+NATURAL JOIN 76_pictures
+WHERE user_id IN (
+    :user_id,
+    (SELECT fav_id FROM 76_favorites WHERE user_id = :user_id)
+)
+ORDER BY post_timestamp DESC
 ";
 
 $stmt = $pdo->prepare($sql);
