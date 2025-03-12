@@ -8,6 +8,7 @@
 body {
   margin: 0 auto;
   color: #fff;
+  background-color: #000;
 }
 
 .account-info-sm {
@@ -77,7 +78,6 @@ body {
   border-bottom: solid #282626;
   background-color: #000;
   gap: 2rem;
-  z-index: 500;
 }
 .container .profile-header .profile-picture img {
   width: 10rem;
@@ -105,14 +105,13 @@ body {
   color: #fff;
 }
 .container .profile-header .header-content .account-info .verified-icon {
-  color: #3897f0; /* Instagram's verified icon color */
+  color: #3897f0; 
   font-size: 1rem;
   margin-left: 0.5rem;
 }
 .container .profile-header .header-content .account-info button {
   padding: 0.5rem 1rem;
   font-weight: bold;
-  background-color: #949595;
   color: #fff;
   border: none;
   border-radius: 0.67em;
@@ -140,7 +139,7 @@ body {
 }
 
 .main-section {
-  width: 70%;
+  width: 60%;
   margin: 0 auto;
   background-color: #000;
   text-align: center;
@@ -189,7 +188,7 @@ body {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  border-radius: 0.5rem; /* Optional: matches your existing styling */
+  border-radius: 0.5rem; 
 }
 .main-section .post-grid .carousel-icon {
   position: absolute;
@@ -236,7 +235,7 @@ body {
   }
   .container .profile-header .header-content .account-info button {
     display: none;
-    visibility: hidden;
+    visibility: hidden; 
   }
   .container .profile-header .header-content .account-stats {
     flex-direction: row;
@@ -260,4 +259,4 @@ body {
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
   }
-}/*# sourceMappingURL=style.css.map */
+}

@@ -1,5 +1,5 @@
 <?php
-// Start session to check login
+
 if (!isset($_SESSION['user_id'])) {
   header('Location: ../../public/');
   exit;
@@ -11,7 +11,7 @@ include_once("../../templates/head.php");
 <body data-bs-theme="dark">
   <div class="container-fluid">
     <div class="row">
-      <!-- Sidebar -->
+      
       <div class="col-2 p-3 position-sticky vh-100 overflow-auto top-0 border-end">
         <h4 class="text-light">Instagram</h4>
         <ul class="list-unstyled py-4">
