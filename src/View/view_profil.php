@@ -13,6 +13,7 @@
         <a href="../../src/Controller/controller_deconnexion.php"><button class="login-btn">Log out</button></a>
     </div>
 </div>
+<hr>
 
 <div class="container">
     <header class="profile-header">
@@ -74,4 +75,4 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
 </body>
-</html>
+</html> 
