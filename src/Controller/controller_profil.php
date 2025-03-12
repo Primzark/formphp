@@ -15,6 +15,7 @@ $pdo = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8',
         where user_id = :user_id;";
 
         $stmt = $pdo->prepare($sql);
+        
 
     
         $stmt->bindValue(':user_id', $_SESSION['user_id'], PDO::PARAM_INT);
@@ -22,7 +23,6 @@ $pdo = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8',
         $stmt->execute();
 
         $post = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
 
 include_once '../View/view_profil.php';
 ?>

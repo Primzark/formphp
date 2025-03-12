@@ -8,7 +8,6 @@
 body {
   margin: 0 auto;
   color: #fff;
-  background-color: #000;
 }
 
 .account-info-sm {
@@ -78,6 +77,7 @@ body {
   border-bottom: solid #282626;
   background-color: #000;
   gap: 2rem;
+  z-index: 500;
 }
 .container .profile-header .profile-picture img {
   width: 10rem;
@@ -99,19 +99,14 @@ body {
   gap: 1.5rem;
 }
 .container .profile-header .header-content .account-info h1 {
-  font-family: "poppins", Arial, sans-serif;
   font-size: 2rem;
   font-weight: bold;
   color: #fff;
 }
-.container .profile-header .header-content .account-info .verified-icon {
-  color: #3897f0; 
-  font-size: 1rem;
-  margin-left: 0.5rem;
-}
 .container .profile-header .header-content .account-info button {
   padding: 0.5rem 1rem;
   font-weight: bold;
+  background-color: #949595;
   color: #fff;
   border: none;
   border-radius: 0.67em;
@@ -139,7 +134,7 @@ body {
 }
 
 .main-section {
-  width: 60%;
+  width: 70%;
   margin: 0 auto;
   background-color: #000;
   text-align: center;
@@ -188,14 +183,7 @@ body {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  border-radius: 0.5rem; 
-}
-.main-section .post-grid .carousel-icon {
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-  border-radius: 50%;
-  color: white;
+  border-radius: 0.5rem; /* Optional: matches your existing styling */
 }
 
 @media (max-width: 768px) {
@@ -204,9 +192,8 @@ body {
     align-items: flex-start;
   }
   .top-bar .top-bar-left h2 {
-    position: absolute;
-    justify-content: center;
-    align-items: center;
+    margin-left: 1rem;
+    margin-bottom: 0.5rem;
   }
   .top-bar .top-bar-right {
     justify-content: flex-start;
@@ -230,12 +217,11 @@ body {
     margin-left: -3em;
   }
   .container .profile-header .header-content .account-info h1 {
-    font-family: "poppins", Arial, sans-serif;
     font-size: 1.2rem;
   }
   .container .profile-header .header-content .account-info button {
     display: none;
-    visibility: hidden; 
+    visibility: hidden;
   }
   .container .profile-header .header-content .account-stats {
     flex-direction: row;
@@ -255,8 +241,7 @@ body {
     padding: 0.3rem 0.6rem;
   }
   .main-section .post-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+    grid-template-columns: repeat(2, 1fr); /* Two columns for smaller screens */
+    gap: 0.5rem;
   }
-}
+}/*# sourceMappingURL=style.css.map */

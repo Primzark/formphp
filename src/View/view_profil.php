@@ -1,6 +1,5 @@
 <?php
 include_once "../../templates/head_profil.php";
-include_once "../../templates/left_nav.php";
 
 ?>
 
@@ -16,11 +15,13 @@ include_once "../../templates/left_nav.php";
     </div>
 
     <div class="text-center text-white">
+
         <header class="profile-header">
             <div class="profile-picture">
                 <img src="/image/Blackpink insta logo.jpg" alt="Profile Picture" />
             </div>
             <div class="header-content">
+
                 <div class="account-info">
                     <h1>
                         <?= $_SESSION["user_pseudo"] ?>
@@ -38,6 +39,7 @@ include_once "../../templates/left_nav.php";
                 <div class="account-bio">
                     <p class="m-0">Cool guy</p>
                 </div>
+                
             </div>
         </header>
     </div>
