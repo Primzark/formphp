@@ -8,9 +8,9 @@ include_once("../../templates/head.php");
             <div class="col-6">
                 <div class="card">
                     <div class="p-4 text-center">
-                        <h1 class="card-title">Merci de votre inscription !</h1>
-                        <p>Vous pouvez dorénavant vous connecter.</p>
-                        <a href="../Controller/controller_connexion.php" class="btn btn-primary">Se connecter</a>
+                        <ion class="card-title">Thanks for your inscription !</h1>
+                        <p>Now you can connect.</p>
+                        <a href="../Controller/controller_connexion.php" class="btn btn-primary">Connexion</a>
                     </div>
                 </div>
             </div>

@@ -1,8 +1,4 @@
-<?php
-    include_once "../../templates/head_profil.php";
-   
-?>
-
+<?php include_once '../../templates/head_profil.php'; ?>
 
 <div class="top-bar">
     <div class="top-bar-left">
@@ -23,9 +19,10 @@
         <div class="header-content">
             <div class="account-info">
                 <h1>
-                    <?= $_SESSION["user_pseudo"] ?>
+                    <?= htmlspecialchars($_SESSION["user_pseudo"]) ?>
                     <span class="verified-icon">
                         <i class="fas fa-check-circle"></i>
+                    </span>
                 </h1>
                 <button>Follow</button>
                 <button>Contact</button>
@@ -46,13 +43,10 @@
     <button>Contact</button>
 </div>
 
-
-
-
 <div class="main-section">
     <div class="tab-bar">
         <div class="tab active">
-            <i class="fa fa-camera"></i>Post
+            <i class="fa fa-camera"></i> Post
         </div>
         <div class="tab">
             <i class="fa fa-video"></i> Reels
@@ -62,12 +56,19 @@
         </div>
     </div>
     <div class="post-grid">
-        <?php foreach ($post as $value) { ?>
-            <div class="post-thumbnail">
-                <img src="../../asset/img/<?= $value['pic_name'] ?>" alt="Post 1">
-                <i class="fa-solid fa-clone carousel-icon"></i>
-            </div>
-        <?php } ?>
+        <?php if (empty($posts)): ?>
+            <p class="text-center">No posts yet.</p>
+        <?php else: ?>
+            <?php foreach ($posts as $value): ?>
+                <div class="post-thumbnail">
+                    <a href="controller_fullpic.php?post_id=<?= $value['post_id'] ?>">
+                        <img src="../../asset/img/<?= htmlspecialchars($value['pic_name'] ?? 'default.jpg') ?>"
+                            alt="<?= htmlspecialchars($value['post_description']) ?>">
+                    </a>
+                    <i class="fa-solid fa-clone carousel-icon"></i>
+                </div>
+            <?php endforeach; ?>
+        <?php endif; ?>
     </div>
 </div>
 
@@ -75,4 +76,5 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
 </body>
-</html> 
+
+</html>
