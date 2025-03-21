@@ -29,15 +29,13 @@ $allPosts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 // Fix timestamps and check if user liked each post
 foreach ($allPosts as &$post) {
     $post['post_timestamp'] = is_numeric($post['post_timestamp']) ? $post['post_timestamp'] : time();
-    // Check if I liked this post
     $sql = "SELECT COUNT(*) as liked FROM `76_likes` WHERE post_id = :post_id AND user_id = :user_id";
     $stmt = $pdo->prepare($sql);
     $stmt->execute(['post_id' => $post['post_id'], 'user_id' => $_SESSION['user_id']]);
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
-    $post['user_liked'] = $result['liked']; // 1 if I liked it, 0 if not
+    $post['user_liked'] = $result['liked'];
 }
 unset($post);
 
 // Show the page
 include_once '../View/view_home.php';
-?>

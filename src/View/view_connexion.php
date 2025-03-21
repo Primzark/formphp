@@ -4,23 +4,26 @@ include_once "../../templates/head.php";
 
 
 
-<body>
+<body class="bg-dark">
+     <h1 class="display-4 text-light text-center">
+      <p class="text-primary fw-bold">Instagram</p>
+     </h1>
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-6 p-4">
-                <div class="card">
+                <div class="card bg-dark border-light rounded-4">
                     <div class="p-4">
-                        <h1 class="card-title text-center">Connexion</h1>
+                        <h1 class="card-title text-center text-primary">Connexion</h1>
                         <form action="" method="post" novalidate>
 
                             <div class="mb-3">
-                                <label for="email" class="form-label">Email:</label>
+                                <label for="email" class="form-label text-light">Email:</label>
                                 <span><?= $errors['email'] ?? '' ?></span>
                                 <input type="email" class="form-control" id="email" name="email" required>
                             </div>
 
                             <div class="mb-3">
-                                <label for="password" class="form-label">password:</label>
+                                <label for="password" class="form-label text-light">password:</label>
                                 <span><?= $errors['password'] ?? '' ?></span>
                                 <input type="password" class="form-control" id="password" name="password" required>
                             </div>
@@ -28,7 +31,7 @@ include_once "../../templates/head.php";
                             <button type="submit" class="btn btn-primary w-100">connexion</button>
                         </form>
 
-                        <p class="mt-3 text-center">No account yet ? <a
+                        <p class="mt-3 text-center text-light">No account yet ? <a
                                 href="../Controller/controller_inscription.php">Sign-in</a>
                         </p>
                     </div>

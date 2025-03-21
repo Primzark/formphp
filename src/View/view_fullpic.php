@@ -12,12 +12,6 @@
                     <li class="py-2"><button class="btn btn-dark w-100 text-start" data-bs-toggle="offcanvas"
                             data-bs-target="#searchOffcanvas"><i class="bi bi-search me-2 fs-2"></i> Search</button>
                     </li>
-                    <li class="py-2"><button class="btn btn-dark w-100 text-start"><i
-                                class="bi bi-compass me-2 fs-2"></i> Explore</button></li>
-                    <li class="py-2"><button class="btn btn-dark w-100 text-start"><i class="bi bi-chat me-2 fs-2"></i>
-                            Messages</button></li>
-                    <li class="py-2"><button class="btn btn-dark w-100 text-start"><i class="bi bi-heart me-2 fs-2"></i>
-                            Notifications</button></li>
                     <li class="py-2"><a class="btn btn-dark w-100 text-start" href="controller_post.php"><i
                                 class="bi bi-plus-square me-2 fs-2"></i> Create</a></li>
                     <li class="py-2"><a class="btn btn-dark w-100 text-start" href="controller_profil.php"><i
@@ -86,19 +80,20 @@
     </div>
 
     <!-- Search Offcanvas -->
-    <div class="offcanvas offcanvas-start bg-dark" tabindex="-1" id="searchOffcanvas"
+    <div class="offcanvas offcanvas-start bg-dark text-light" tabindex="-1" id="searchOffcanvas"
         aria-labelledby="searchOffcanvasLabel">
         <div class="offcanvas-header">
-            <h5 class="offcanvas-title text-light" id="searchOffcanvasLabel">Search</h5>
+            <h5 class="offcanvas-title" id="searchOffcanvasLabel">Search</h5>
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
                 aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
-            <form>
+            <form method="POST" action="../../src/Controller/controller_search.php">
                 <div class="mb-3">
-                    <input type="text" class="form-control" placeholder="Search users, hashtags..." aria-label="Search">
+                    <input type="text" class="form-control bg-dark text-light border-secondary" name="search_term"
+                        placeholder="Search users..." aria-label="Search">
                 </div>
-                <button type="button" class="btn btn-outline-danger w-100">Search</button>
+                <button type="submit" class="btn btn-outline-danger w-100">Search</button>
             </form>
         </div>
     </div>

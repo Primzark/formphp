@@ -1,14 +1,17 @@
 <?php include_once '../../templates/head.php'; ?>
 
-<body>
+<body class="bg-dark">
+    <h1 class="display-4 text-light text-center mt-3">
+<p class="text-primary fw-bold"> Instagram </p>
+    </h1>
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-6">
-                <div class="card p-4">
-                    <h1 class="card-title text-center">Sign-in</h1>
+                <div class="card p-4 bg-dark border-light rounded-4">
+                    <h1 class="card-title text-center text-primary">Sign-in</h1>
                     <form action="" method="POST" novalidate>
                         <div class="mb-3">
-                            <label for="nom" class="form-label">Name:</label>
+                            <label for="nom" class="form-label text-light">Name:</label>
                             <span class="text-danger"><?= $errors['nom'] ?? '' ?></span>
                             <input type="text"
                                 class="form-control <?php echo isset($errors['nom']) ? 'is-invalid' : ''; ?>" id="nom"
@@ -21,7 +24,7 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="prenom" class="form-label">name:</label>
+                            <label for="prenom" class="form-label text-light">name:</label>
                             <span class="text-danger"><?= $errors['prenom'] ?? '' ?></span>
                             <input type="text"
                                 class="form-control <?php echo isset($errors['prenom']) ? 'is-invalid' : ''; ?>"
@@ -34,7 +37,7 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="pseudo" class="form-label">Pseudo:</label>
+                            <label for="pseudo" class="form-label text-light">Pseudo:</label>
                             <span class="text-danger"><?= $errors['pseudo'] ?? '' ?></span>
                             <input type="text"
                                 class="form-control <?php echo isset($errors['pseudo']) ? 'is-invalid' : ''; ?>"
@@ -47,7 +50,7 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="email" class="form-label">Email:</label>
+                            <label for="email" class="form-label text-light">Email:</label>
                             <span class="text-danger"><?= $errors['email'] ?? '' ?></span>
                             <input type="email"
                                 class="form-control <?php echo isset($errors['email']) ? 'is-invalid' : ''; ?>"
@@ -60,7 +63,7 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="password" class="form-label">Password: (Maj, numb, min, special)</label>
+                            <label for="password" class="form-label text-light">Password: (Maj, numb, min, special)</label>
                             <span class="text-danger"><?= $errors['password'] ?? '' ?></span>
                             <input type="password"
                                 class="form-control <?php echo isset($errors['password']) ? 'is-invalid' : ''; ?>"
@@ -73,7 +76,7 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="confirm_password" class="form-label">Confirm password:</label>
+                            <label for="confirm_password" class="form-label text-light">Confirm password:</label>
                             <span class="text-danger"><?= $errors['confirm_password'] ?? '' ?></span>
                             <input type="password"
                                 class="form-control <?php echo isset($errors['confirm_password']) ? 'is-invalid' : ''; ?>"
@@ -86,7 +89,7 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="dob" class="form-label">birthdate:</label>
+                            <label for="dob" class="form-label text-light">birthdate:</label>
                             <span class="text-danger"><?= $errors['dob'] ?? '' ?></span>
                             <input type="date"
                                 class="form-control <?php echo isset($errors['dob']) ? 'is-invalid' : ''; ?>" id="dob"
@@ -94,12 +97,12 @@
                             <?php if (isset($errors['dob'])): ?>
                                 <div class="invalid-feedback"><?= $errors['dob'] ?></div>
                             <?php else: ?>
-                                <div class="valid-feedback">birthdate valid </div>
+                                <div class="valid-feedback text-light">birthdate valid </div>
                             <?php endif; ?>
                         </div>
 
                         <div class="mb-3">
-                            <label for="genre" class="form-label">Genre:</label>
+                            <label for="genre" class="form-label text-light">Genre:</label>
                             <span class="text-danger"><?= $errors['genre'] ?? '' ?></span>
                             <select class="form-control <?php echo isset($errors['genre']) ? 'is-invalid' : ''; ?>"
                                 id="genre" name="genre" required>
@@ -118,7 +121,7 @@
 
                         <div class="mb-3">
                             <input type="checkbox" class="form-check-input" id="terms" name="terms" value="1" <?php echo isset($_POST['terms']) ? 'checked' : ''; ?> required>
-                            <label class="form-check-label" for="terms">Accept condition</label>
+                            <label class="form-check-label text-light" for="terms">Accept condition</label>
                             <span class="text-danger"><?= $errors['terms'] ?? '' ?></span>
                         </div>
 

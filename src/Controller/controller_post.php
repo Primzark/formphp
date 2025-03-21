@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($stmt->execute()) {
             $upload_directory = '../../asset/img/';
             move_uploaded_file($_FILES["photo"]["tmp_name"], $upload_directory . $pic_name);
-            header('Location: ../../controller_home.php');
+            header('Location: controller_home.php');
             exit;
             
         }
