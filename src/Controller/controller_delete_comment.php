@@ -23,10 +23,9 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 // Verify the comment belongs to the user
 $sql = "SELECT COUNT(*) FROM `76_comments` WHERE com_id = :com_id AND user_id = :user_id";
 $stmt = $pdo->prepare($sql);
-$stmt->execute([
-    'com_id' => $_GET['com_id'],
-    'user_id' => $_SESSION['user_id']
-]);
+$stmt->bindValue(':com_id', $_GET['com_id'], PDO::PARAM_INT);
+$stmt->bindValue(':user_id', $_SESSION['user_id'], PDO::PARAM_INT);
+$stmt->execute();
 $isOwner = $stmt->fetchColumn();
 
 if (!$isOwner) {
@@ -37,7 +36,8 @@ if (!$isOwner) {
 // Delete the comment
 $sql = "DELETE FROM `76_comments` WHERE com_id = :com_id";
 $stmt = $pdo->prepare($sql);
-$stmt->execute(['com_id' => $_GET['com_id']]);
+$stmt->bindValue(':com_id', $_GET['com_id'], PDO::PARAM_INT);
+$stmt->execute();
 
 // Redirect back to the fullpic page
 header('Location: controller_fullpic.php?post_id=' . $_GET['post_id']);

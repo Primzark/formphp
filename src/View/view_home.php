@@ -4,8 +4,8 @@
     <div class="container-fluid">
         <div class="row">
 
-            <div class="col-md-3 col-lg-2 d-none d-md-block p-3 position-sticky vh-100 overflow-auto top-0 border-end">
-                <h4 class="text-primary">Instagram</h4>
+            <div class="col-md-3 col-lg-2 d-none d-md-block p-3 position-sticky vh-100 top-0 border-end">
+                <p class="text-primary h4">Instagram</p>
                 <ul class="list-unstyled py-4">
                     <li class="py-2"><a class="btn btn-dark w-100 text-start" href="controller_home.php"><i
                                 class="bi bi-house-door me-2 fs-2"></i> <span>Home</span></a></li>

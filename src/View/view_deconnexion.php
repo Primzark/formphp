@@ -17,8 +17,6 @@ include_once("../../templates/head.php");
                     <li class="py-2"><button class="btn btn-dark w-100 text-start" data-bs-toggle="offcanvas"
                             data-bs-target="#searchOffcanvas"><i class="bi bi-search me-2 fs-2"></i> Search</button>
                     </li>
-                    <li class="py-2"><button class="btn btn-dark w-100 text-start"><i class="bi bi-chat me-2 fs-2"></i>
-                            Messages</button></li>
                     <li class="py-2"><a class="btn btn-dark w-100 text-start" href="controller_post.php"><i
                                 class="bi bi-plus-square me-2 fs-2"></i> Create</a></li>
                     <li class="py-2"><a class="btn btn-dark w-100 text-start" href="controller_profil.php"><i
@@ -32,30 +30,32 @@ include_once("../../templates/head.php");
                         <div class="card-header">
                             <div class="p-4 text-center">
                                 <h1 class="display-6"> Log out ?</h1>
-                                    <p class="display-6">Your session will end</p>
-                                    <a href="../Controller/controller_logout.php" class="btn btn-danger btn-lg">log-out
-                                    </a>
+                                <p class="display-6">Your session will end</p>
+                                <a href="../Controller/controller_logout.php" class="btn btn-danger btn-lg">log-out
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="offcanvas offcanvas-start bg-dark text-light" tabindex="-1" id="searchOffcanvas" aria-labelledby="searchOffcanvasLabel">
-    <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="searchOffcanvasLabel">Search</h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-        <form method="POST" action="../../src/Controller/controller_search.php">
-            <div class="mb-3">
-                <input type="text" class="form-control bg-dark text-light border-secondary" 
-                       name="search_term" placeholder="Search users..." aria-label="Search">
+            <div class="offcanvas offcanvas-start bg-dark text-light" tabindex="-1" id="searchOffcanvas"
+                aria-labelledby="searchOffcanvasLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="searchOffcanvasLabel">Search</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <form method="POST" action="../../src/Controller/controller_search.php">
+                        <div class="mb-3">
+                            <input type="text" class="form-control bg-dark text-light border-secondary"
+                                name="search_term" placeholder="Search users..." aria-label="Search">
+                        </div>
+                        <button type="submit" class="btn btn-outline-danger w-100">Search</button>
+                    </form>
+                </div>
             </div>
-            <button type="submit" class="btn btn-outline-danger w-100">Search</button>
-        </form>
-    </div>
-</div>
 
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
                 integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

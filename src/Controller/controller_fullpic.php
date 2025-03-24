@@ -28,15 +28,14 @@ $sql = "SELECT p.*, u.user_pseudo, pic.pic_name,
         WHERE p.post_id = :post_id
         GROUP BY p.post_id, u.user_pseudo, pic.pic_name";
 $stmt = $pdo->prepare($sql);
-$stmt->execute([
-    'post_id' => $_GET['post_id'],
-    'user_id' => $_SESSION['user_id']
-]);
+$stmt->bindValue(':post_id', $_GET['post_id'], PDO::PARAM_INT);
+$stmt->bindValue(':user_id', $_SESSION['user_id'], PDO::PARAM_INT);
+$stmt->execute();
 $post = $stmt->fetch(PDO::FETCH_ASSOC);
 
 // If no post found, redirect to home
 if (!$post) {
-    header('Location: controller_home.php');
+    header(header: 'Location: controller_home.php');
     exit;
 }
 
@@ -47,7 +46,8 @@ $sql = "SELECT c.*, u.user_pseudo
         WHERE c.post_id = :post_id 
         ORDER BY c.com_timestamp ASC";
 $stmt = $pdo->prepare($sql);
-$stmt->execute(['post_id' => $_GET['post_id']]);
+$stmt->bindValue(':post_id', $_GET['post_id'], PDO::PARAM_INT);
+$stmt->execute();
 $comments = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 include_once '../View/view_fullpic.php';
