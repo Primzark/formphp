@@ -12,17 +12,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     var_dump($_POST);
     if (empty($_POST['nom'])) {
-        $errors['nom'] = 'champs obligatoire';
+        $errors['nom'] = 'This field is required';
     } else if (!preg_match($regex_name, $_POST['nom'])) {
-        $errors['nom'] = 'caractère non autorisés';
+        $errors['nom'] = 'Invalid characters';
     }
 
 
     if (isset($_POST['prenom'])) {
         if (empty($_POST['prenom'])) {
-            $errors['prenom'] = 'champs obligatoire';
+            $errors['prenom'] = 'This field is required';
         } else if (!preg_match($regex_name, $_POST['prenom'])) {
-            $errors['prenom'] = 'caractère non autorisés';
+            $errors['prenom'] = 'Invalid characters';
         }
     }
 
@@ -39,54 +39,54 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (isset($_POST['pseudo'])) {
         if (empty($_POST['pseudo'])) {
-            $errors['pseudo'] = 'champs obligatoire';
+            $errors['pseudo'] = 'This field is required';
         } else if (!preg_match($regex_pseudo, $_POST['pseudo'])) {
-            $errors['pseudo'] = 'pseudo non valide';
+            $errors['pseudo'] = 'Invalid username';
         } else if ($found == true) {
-            $errors['pseudo'] = 'pseudo non disponible';
+            $errors['pseudo'] = 'Username not available';
         }
     }
 
 
     if (isset($_POST['email'])) {
         if (empty($_POST['email'])) {
-            $errors['email'] = 'champs obligatoire';
+            $errors['email'] = 'This field is required';
         } else if (!preg_match($regex_email, $_POST['email'])) {
-            $errors['email'] = 'email non valide';
+            $errors['email'] = 'Invalid email address';
         } else if ($found == true) {
-            $errors['email'] = 'email non disponible';
+            $errors['email'] = 'Email not available';
         }
     }
 
 
     if (isset($_POST['password'])) {
         if (empty($_POST['password'])) {
-            $errors['password'] = 'champs obligatoire';
+            $errors['password'] = 'This field is required';
         } else if (!preg_match($regex_password, $_POST['password'])) {
-            $errors['password'] = 'mot de passe non identique';
+            $errors['password'] = 'Invalid password';
         }
     }
 
     if (isset($_POST['confirm_password'])) {
         if (empty($_POST['confirm_password'])) {
-            $errors['confirm_password'] = 'champs obligatoire';
+            $errors['confirm_password'] = 'This field is required';
         } else if ($_POST['password'] != $_POST['confirm_password']) {
-            $errors['confirm_password'] = 'mot de passe non identique';
+            $errors['confirm_password'] = 'Passwords do not match';
         }
     }
 
     if (isset($_POST['dob'])) {
         if (empty($_POST['dob'])) {
-            $errors['dob'] = 'champs obligatoire';
+            $errors['dob'] = 'This field is required';
         }
     }
 
     if (!isset($_POST['genre'])) {
-        $errors['genre'] = 'champs obligatoire';
+        $errors['genre'] = 'This field is required';
     }
 
     if (!isset($_POST['terms'])) {
-        $errors['terms'] = 'champs obligatoire';
+        $errors['terms'] = 'This field is required';
     }
 
 

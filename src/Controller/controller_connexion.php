@@ -8,12 +8,12 @@ var_dump($_POST);
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['email'])) {
         if (empty($_POST['email'])) {
-            $errors['email'] = 'champs obligatoire';
+            $errors['email'] = 'Email is required';
         }
     }
     if (isset($_POST['password'])) {
         if (empty($_POST['password'])) {
-            $errors['password'] = "Inserer mot de passe";
+            $errors['password'] = 'Please enter a password';
         }
     }
 
@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         if ($found == false) {
             var_dump($_POST);
-            $errors['connexion'] = 'pseudo incorrecte';
+            $errors['connexion'] = 'Incorrect username';
         } else {
             var_dump($user);
             if (password_verify($_POST['password'], $user['user_password'])) {
@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 header('Location: controller_profil.php');
                 exit();
             } else {
-                $errors['connexion'] = 'mot de passe incorrecte';
+                $errors['connexion'] = 'Incorrect password';
             }
         }
         $pdo = "";
