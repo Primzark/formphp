@@ -2,7 +2,7 @@
 
 <body class="bg-dark">
     <h1 class="display-4 text-light text-center mt-3">
-<p class="text-primary fw-bold"> Instagram </p>
+        <p class="text-primary fw-bold"> Instagram </p>
     </h1>
     <div class="container mt-5">
         <div class="row justify-content-center">
