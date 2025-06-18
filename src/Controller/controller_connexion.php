@@ -6,17 +6,17 @@ session_start();
 $erreurs = [];
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Vérification de l'email
-    if (isset($_POST['email']) && empty($_POST['email'])) {
-        $erreurs['email'] = 'Champ obligatoire';
+    if (isset($_POST['email'])) {
+        if (empty($_POST['email'])) {
+            $errors['email'] = 'Email is required';
+        }
+    }
+    if (isset($_POST['password'])) {
+        if (empty($_POST['password'])) {
+            $errors['password'] = 'Please enter a password';
+        }
     }
 
-    // Vérification du mot de passe
-    if (isset($_POST['password']) && empty($_POST['password'])) {
-        $erreurs['password'] = 'Veuillez insérer votre mot de passe';
-    }
-
-    // Si les champs sont remplis
     if (!empty($_POST['email']) && !empty($_POST['password'])) {
         try {
             // Connexion à la base de données avec PDO
@@ -35,18 +35,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             $utilisateur = $stmt->fetch(PDO::FETCH_ASSOC);
 
-            // Vérification de l'existence de l'utilisateur
-            if (!$utilisateur) {
-                $erreurs['connexion'] = 'Pseudo ou adresse e-mail incorrect';
+
+
+        if ($found == false) {
+            var_dump($_POST);
+            $errors['connexion'] = 'Incorrect username';
+        } else {
+            var_dump($user);
+            if (password_verify($_POST['password'], $user['user_password'])) {
+                $_SESSION = $user;
+                header('Location: controller_profil.php');
+                exit();
             } else {
-                // Vérification du mot de passe
-                if (password_verify($_POST['password'], $utilisateur['user_password'])) {
-                    $_SESSION = $utilisateur;
-                    header('Location: controller_profil.php');
-                    exit();
-                } else {
-                    $erreurs['connexion'] = 'Mot de passe incorrect';
-                }
+                $errors['connexion'] = 'Incorrect password';
             }
 
         } catch (PDOException $e) {
