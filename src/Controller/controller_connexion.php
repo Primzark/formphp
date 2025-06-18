@@ -5,7 +5,7 @@ session_start();
 
 $erreurs = [];
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+if ($_SERVER['REQUEST_METHOD'] == 'POST')  {
     if (isset($_POST['email'])) {
         if (empty($_POST['email'])) {
             $errors['email'] = 'Email is required';
