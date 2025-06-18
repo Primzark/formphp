@@ -20,7 +20,6 @@ $sql = "SELECT p.post_id, p.post_description, p.post_timestamp,
         JOIN `76_users` u ON p.user_id = u.user_id
         JOIN `76_pictures` pic ON p.post_id = pic.post_id
         LEFT JOIN `76_likes` l ON p.post_id = l.post_id
-        WHERE
         GROUP BY p.post_id, p.post_description, p.post_timestamp, u.user_pseudo, u.user_avatar, pic.pic_name
         ORDER BY p.post_timestamp DESC";
 $stmt = $pdo->prepare($sql);

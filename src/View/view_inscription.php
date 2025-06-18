@@ -24,7 +24,7 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="prenom" class="form-label text-light">name:</label>
+                            <label for="prenom" class="form-label text-light">last name:</label>
                             <span class="text-danger"><?= $errors['prenom'] ?? '' ?></span>
                             <input type="text"
                                 class="form-control <?php echo isset($errors['prenom']) ? 'is-invalid' : ''; ?>"
