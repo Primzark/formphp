@@ -3,45 +3,37 @@
 include_once '../../config.php';
 session_start();
 
-$erreurs = [];
+$errors = [];
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST')  {
-    if (isset($_POST['email'])) {
-        if (empty($_POST['email'])) {
-            $errors['email'] = 'Email is required';
-        }
-    }
-    if (isset($_POST['password'])) {
-        if (empty($_POST['password'])) {
-            $errors['password'] = 'Please enter a password';
-        }
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if (empty($_POST['email'] ?? '')) {
+        $errors['email'] = 'Email is required';
     }
 
-    if (!empty($_POST['email']) && !empty($_POST['password'])) {
-        try {
-            // Connexion à la base de données avec PDO
-            $pdo = new PDO(
-                'mysql:host=' . DB_HOST . ';port=8889;dbname=' . DB_NAME . ';charset=utf8',
-                DB_USER,
-                DB_PASS
-            );
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    if (empty($_POST['password'] ?? '')) {
+        $errors['password'] = 'Please enter a password';
+    }
 
-            // Requête SQL pour trouver l'utilisateur
-            $requete = "SELECT * FROM 76_users WHERE user_pseudo = :email OR user_mail = :email;";
-            $stmt = $pdo->prepare($requete);
-            $stmt->bindValue(':email', $_POST['email'], PDO::PARAM_STR);
-            $stmt->execute();
+    if (empty($errors)) {
+        // Connexion à la base de données avec PDO
+        $pdo = new PDO(
+            'mysql:host=' . DB_HOST . ';port=8889;dbname=' . DB_NAME . ';charset=utf8',
+            DB_USER,
+            DB_PASS
+        );
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            $utilisateur = $stmt->fetch(PDO::FETCH_ASSOC);
+        // Requête SQL pour trouver l'utilisateur
+        $sql = 'SELECT * FROM 76_users WHERE user_pseudo = :email OR user_mail = :email';
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindValue(':email', $_POST['email'], PDO::PARAM_STR);
+        $stmt->execute();
 
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-
-        if ($found == false) {
-            var_dump($_POST);
+        if ($user === false) {
             $errors['connexion'] = 'Incorrect username';
         } else {
-            var_dump($user);
             if (password_verify($_POST['password'], $user['user_password'])) {
                 $_SESSION = $user;
                 header('Location: controller_profil.php');
@@ -49,9 +41,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')  {
             } else {
                 $errors['connexion'] = 'Incorrect password';
             }
-
-        } catch (PDOException $e) {
-            die('Erreur de connexion à la base de données : ' . $e->getMessage());
         }
     }
 }
