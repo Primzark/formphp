@@ -9,7 +9,6 @@
                     <form action="" method="POST" novalidate>
                         <div class="mb-3">
                             <label for="nom" class="form-label">Nom:</label>
-                            <span class="text-danger"><?= $errors['nom'] ?? '' ?></span>
                             <input type="text"
                                 class="form-control <?php echo isset($errors['nom']) ? 'is-invalid' : ''; ?>" id="nom"
                                 name="nom" value="<?= $_POST['nom'] ?? '' ?>" required>
@@ -22,7 +21,6 @@
 
                         <div class="mb-3">
                             <label for="prenom" class="form-label">Prénom:</label>
-                            <span class="text-danger"><?= $errors['prenom'] ?? '' ?></span>
                             <input type="text"
                                 class="form-control <?php echo isset($errors['prenom']) ? 'is-invalid' : ''; ?>"
                                 id="prenom" name="prenom" value="<?= $_POST['prenom'] ?? '' ?>" required>
@@ -35,7 +33,6 @@
 
                         <div class="mb-3">
                             <label for="pseudo" class="form-label">Pseudo:</label>
-                            <span class="text-danger"><?= $errors['pseudo'] ?? '' ?></span>
                             <input type="text"
                                 class="form-control <?php echo isset($errors['pseudo']) ? 'is-invalid' : ''; ?>"
                                 id="pseudo" name="pseudo" value="<?= $_POST['pseudo'] ?? '' ?>" required>
@@ -48,7 +45,6 @@
 
                         <div class="mb-3">
                             <label for="email" class="form-label">Email:</label>
-                            <span class="text-danger"><?= $errors['email'] ?? '' ?></span>
                             <input type="email"
                                 class="form-control <?php echo isset($errors['email']) ? 'is-invalid' : ''; ?>"
                                 id="email" name="email" value="<?= $_POST['email'] ?? '' ?>" required>
@@ -61,7 +57,6 @@
 
                         <div class="mb-3">
                             <label for="password" class="form-label">Mot de passe: (Maj, numb, min, special)</label>
-                            <span class="text-danger"><?= $errors['password'] ?? '' ?></span>
                             <input type="password"
                                 class="form-control <?php echo isset($errors['password']) ? 'is-invalid' : ''; ?>"
                                 id="password" name="password" required>
@@ -74,7 +69,6 @@
 
                         <div class="mb-3">
                             <label for="confirm_password" class="form-label">Confirmez le mot de passe:</label>
-                            <span class="text-danger"><?= $errors['confirm_password'] ?? '' ?></span>
                             <input type="password"
                                 class="form-control <?php echo isset($errors['confirm_password']) ? 'is-invalid' : ''; ?>"
                                 id="confirm_password" name="confirm_password" required>
@@ -87,7 +81,6 @@
 
                         <div class="mb-3">
                             <label for="dob" class="form-label">Date de naissance:</label>
-                            <span class="text-danger"><?= $errors['dob'] ?? '' ?></span>
                             <input type="date"
                                 class="form-control <?php echo isset($errors['dob']) ? 'is-invalid' : ''; ?>" id="dob"
                                 name="dob" value="<?= $_POST['dob'] ?? '' ?>" required>
@@ -100,7 +93,6 @@
 
                         <div class="mb-3">
                             <label for="genre" class="form-label">Genre:</label>
-                            <span class="text-danger"><?= $errors['genre'] ?? '' ?></span>
                             <select class="form-control <?php echo isset($errors['genre']) ? 'is-invalid' : ''; ?>"
                                 id="genre" name="genre" required>
                                 <option value="" disabled <?php echo !isset($_POST['genre']) ? 'selected' : ''; ?>>--
@@ -119,7 +111,6 @@
                         <div class="mb-3">
                             <input type="checkbox" class="form-check-input" id="terms" name="terms" value="1" <?php echo isset($_POST['terms']) ? 'checked' : ''; ?> required>
                             <label class="form-check-label" for="terms">J'accepte les conditions d'utilisation</label>
-                            <span class="text-danger"><?= $errors['terms'] ?? '' ?></span>
                         </div>
 
                         <button type="submit" class="btn btn-primary w-100">S'inscrire</button>

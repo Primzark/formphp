@@ -10,7 +10,6 @@ $regex_password = "/^[a-zA-Z.@-]{4,}$/";
 $errors = [];
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    var_dump($_POST);
     if (empty($_POST['nom'])) {
         $errors['nom'] = 'This field is required';
     } else if (!preg_match($regex_name, $_POST['nom'])) {
@@ -95,7 +94,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $pdo = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8', DB_USER, DB_PASS);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        var_dump($pdo);
         $sql = "INSERT INTO `76_users` (user_lastname,user_firstname,user_pseudo,user_birthdate,user_mail,user_password,user_gender) 
                 VALUES (:lastname,:firstname,:pseudo,:birthdate,:mail,:password,:gender);";
 
