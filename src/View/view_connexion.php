@@ -18,16 +18,26 @@ include_once "../../templates/head.php";
 
                             <div class="mb-3">
                                 <label for="email" class="form-label text-light">Email:</label>
-                                <span><?= $errors['email'] ?? '' ?></span>
-                                <input type="email" class="form-control" id="email" name="email" required>
+                                <input type="email"
+                                    class="form-control <?php echo isset($errors['email']) ? 'is-invalid' : ''; ?>"
+                                    id="email" name="email" value="<?= $_POST['email'] ?? '' ?>" required>
+                                <?php if (isset($errors['email'])): ?>
+                                    <div class="invalid-feedback"><?= $errors['email'] ?></div>
+                                <?php endif; ?>
                             </div>
 
                             <div class="mb-3">
                                 <label for="password" class="form-label text-light">password:</label>
-                                <span><?= $errors['password'] ?? '' ?></span>
-                                <input type="password" class="form-control" id="password" name="password" required>
+                                <input type="password"
+                                    class="form-control <?php echo isset($errors['password']) ? 'is-invalid' : ''; ?>"
+                                    id="password" name="password" required>
+                                <?php if (isset($errors['password'])): ?>
+                                    <div class="invalid-feedback"><?= $errors['password'] ?></div>
+                                <?php endif; ?>
                             </div>
-                            <span><?= $errors['connexion'] ?? '' ?></span>
+                            <?php if (isset($errors['connexion'])): ?>
+                                <div class="invalid-feedback d-block"><?= $errors['connexion'] ?></div>
+                            <?php endif; ?>
                             <button type="submit" class="btn btn-primary w-100">connexion</button>
                         </form>
 
