@@ -17,8 +17,6 @@
                                 name="nom" value="<?= $_POST['nom'] ?? '' ?>" required>
                             <?php if (isset($errors['nom'])): ?>
                                 <div class="invalid-feedback"><?= $errors['nom'] ?></div>
-                            <?php else: ?>
-                                <div class="valid-feedback">Invalid</div>
                             <?php endif; ?>
                         </div>
 
@@ -29,8 +27,6 @@
                                 id="prenom" name="prenom" value="<?= $_POST['prenom'] ?? '' ?>" required>
                             <?php if (isset($errors['prenom'])): ?>
                                 <div class="invalid-feedback"><?= $errors['prenom'] ?></div>
-                            <?php else: ?>
-                                <div class="valid-feedback">Name correct</div>
                             <?php endif; ?>
                         </div>
 
@@ -41,8 +37,6 @@
                                 id="pseudo" name="pseudo" value="<?= $_POST['pseudo'] ?? '' ?>" required>
                             <?php if (isset($errors['pseudo'])): ?>
                                 <div class="invalid-feedback"><?= $errors['pseudo'] ?></div>
-                            <?php else: ?>
-                                <div class="valid-feedback">Pseudo valid</div>
                             <?php endif; ?>
                         </div>
 
@@ -53,8 +47,6 @@
                                 id="email" name="email" value="<?= $_POST['email'] ?? '' ?>" required>
                             <?php if (isset($errors['email'])): ?>
                                 <div class="invalid-feedback"><?= $errors['email'] ?></div>
-                            <?php else: ?>
-                                <div class="valid-feedback">Email valid</div>
                             <?php endif; ?>
                         </div>
 
@@ -65,8 +57,6 @@
                                 id="password" name="password" required>
                             <?php if (isset($errors['password'])): ?>
                                 <div class="invalid-feedback"><?= $errors['password'] ?></div>
-                            <?php else: ?>
-                                <div class="valid-feedback">Password valid</div>
                             <?php endif; ?>
                         </div>
 
@@ -77,8 +67,6 @@
                                 id="confirm_password" name="confirm_password" required>
                             <?php if (isset($errors['confirm_password'])): ?>
                                 <div class="invalid-feedback"><?= $errors['confirm_password'] ?></div>
-                            <?php else: ?>
-                                <div class="valid-feedback">password confirme</div>
                             <?php endif; ?>
                         </div>
 
@@ -89,8 +77,6 @@
                                 name="dob" value="<?= $_POST['dob'] ?? '' ?>" required>
                             <?php if (isset($errors['dob'])): ?>
                                 <div class="invalid-feedback"><?= $errors['dob'] ?></div>
-                            <?php else: ?>
-                                <div class="valid-feedback text-light">birthdate valid </div>
                             <?php endif; ?>
                         </div>
 
@@ -106,8 +92,6 @@
                             </select>
                             <?php if (isset($errors['genre'])): ?>
                                 <div class="invalid-feedback"><?= $errors['genre'] ?></div>
-                            <?php else: ?>
-                                <div class="valid-feedback">Genre valide</div>
                             <?php endif; ?>
                         </div>
 
