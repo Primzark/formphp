@@ -11,7 +11,7 @@
                     <h1 class="card-title text-center text-primary">Sign-in</h1>
                     <form action="" method="POST" novalidate>
                         <div class="mb-3">
-                            <label for="nom" class="form-label text-light">Nom:</label>
+                            <label for="nom" class="form-label text-light">Name:</label>
                             <input type="text"
                                 class="form-control <?php echo isset($errors['nom']) ? 'is-invalid' : ''; ?>" id="nom"
                                 name="nom" value="<?= $_POST['nom'] ?? '' ?>" required>
@@ -21,7 +21,7 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="prenom" class="form-label text-light">Prénom:</label>
+                            <label for="prenom" class="form-label text-light">Last name:</label>
                             <input type="text"
                                 class="form-control <?php echo isset($errors['prenom']) ? 'is-invalid' : ''; ?>"
                                 id="prenom" name="prenom" value="<?= $_POST['prenom'] ?? '' ?>" required>
@@ -51,7 +51,7 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="password" class="form-label text-light">Mot de passe: (Maj, numb, min, special)</label>
+                            <label for="password" class="form-label text-light">Password: (Maj, numb, min, special)</label>
                             <input type="password"
                                 class="form-control <?php echo isset($errors['password']) ? 'is-invalid' : ''; ?>"
                                 id="password" name="password" required>
@@ -61,7 +61,7 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="confirm_password" class="form-label text-light">Confirmez le mot de passe:</label>
+                            <label for="confirm_password" class="form-label text-light">Confirm Password:</label>
                             <input type="password"
                                 class="form-control <?php echo isset($errors['confirm_password']) ? 'is-invalid' : ''; ?>"
                                 id="confirm_password" name="confirm_password" required>
@@ -71,7 +71,7 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="dob" class="form-label text-light">Date de naissance:</label>
+                            <label for="dob" class="form-label text-light">Date of Birth:</label>
                             <input type="date"
                                 class="form-control <?php echo isset($errors['dob']) ? 'is-invalid' : ''; ?>" id="dob"
                                 name="dob" value="<?= $_POST['dob'] ?? '' ?>" required>
@@ -81,7 +81,7 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="genre" class="form-label text-light">Genre:</label>
+                            <label for="genre" class="form-label text-light">Gender:</label>
                             <select class="form-control <?php echo isset($errors['genre']) ? 'is-invalid' : ''; ?>"
                                 id="genre" name="genre" required>
                                 <option value="" disabled <?php echo !isset($_POST['genre']) ? 'selected' : ''; ?>>--
@@ -97,7 +97,7 @@
 
                         <div class="mb-3">
                             <input type="checkbox" class="form-check-input" id="terms" name="terms" value="1" <?php echo isset($_POST['terms']) ? 'checked' : ''; ?> required>
-                            <label class="form-check-label text-light" for="terms">J'accepte les conditions d'utilisation</label>
+                            <label class="form-check-label text-light" for="terms">Accept conditions</label>
                         </div>
 
                         <button type="submit" class="btn btn-primary w-100">Sign-in</button>
